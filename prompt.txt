@@ -1,0 +1,26 @@
+Create a website with the following requirements:
+
+The purpose of the website is to service as the offcial website ofZhejiang University Alumni Association Singapore.
+
+Language: 中文
+Title of the website: 新加坡浙江大学校友会
+Domain: zju.sg
+
+There should be following pages in the website, organised in a way that is easy to navigate:
+- Index page:
+    Welcome message from the current head of alumni association, a brief introduction, and a list of the events that were recently held.
+- History:
+    A page to introduce the history of the association.
+- Org chart:
+    Including the personal information of each committee member, including a photo, self intro, and title in the committee.
+- Member events:
+    A list of posts to show the member events, with photos.
+- Member application:
+    A webpage to show the benefit and application process, with a link to the membership application Google Form link.
+- Sponsorship
+    A webpage to show the information of Sponsorship. Can also list a list of past sponsors and the events that they sponsor.
+- Contact
+    Contact page to show the official email, address and phone number of the association.
+
+Stype:
+- Simple and elegent design
