@@ -1,127 +1,285 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新加坡浙江大学校友会</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000; /* 确保导航栏在其他元素之上 */
-        }
-        .section {
-            padding: 60px 0;
-            margin-top: 80px; /* 给固定的导航栏腾出空间 */
-        }
-        .navbar-brand {
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新加坡浙江大学校友会</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* 确保导航栏在其他元素之上 */
+    }
+    .section {
+      padding: 60px 0;
+      margin-top: 80px; /* 给固定导航栏腾出空间 */
+      scroll-margin-top: 80px; /* 滚动到该部分时预留顶部80px空间 */
+    }
+    /* 为大标题添加 margin-bottom */
+    h2 {
+      margin-bottom: 20px;
+    }
+    /* 限制导航栏logo的最大宽度 */
+    .navbar-brand img {
+      max-width: 300px;
+      height: auto;
+    }
+    /* 固定轮播图片的大小，并居中裁剪 */
+    .carousel-inner {
+      height: 500px; /* 设定一个固定高度 */
+    }
+    .carousel-inner img {
+      height: 60%;
+      width: 60%;
+      object-fit: cover;       /* 保持比例，超出部分裁剪 */
+      object-position: center; /* 居中裁剪 */
+    }
+    /* 设置活动列表中可点击区域样式 */
+    .event-title {
+      display: block;
+      color: #0d6efd;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .event-title:hover {
+      text-decoration: underline;
+    }
+    /* 组织架构人员照片样式：缩放到150px × 150px，并留足够的下边距 */
+    .org-chart-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">新加坡浙江大学校友会</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#index">首页</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#history">历史</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#org-chart">组织架构</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#events">会员活动</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#application">会员申请</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sponsorship">赞助</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">联系我们</a></li>
-                </ul>
+  <!-- 导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./zjuaas_logo.jpg" alt="校友会标志" class="img-fluid">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#index">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="#history">校友会简介</a></li>
+          <li class="nav-item"><a class="nav-link" href="#org-chart">组织架构</a></li>
+          <li class="nav-item"><a class="nav-link" href="#member-rules">会员章程</a></li>
+          <li class="nav-item"><a class="nav-link" href="#application">会员申请</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sponsorship">赞助</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- 首页 -->
+  <section id="index" class="section bg-light">
+    <div class="container text-center">
+      <h2>欢迎来到新加坡浙江大学校友会</h2>
+      <p>新加坡浙江大学校友会成立于2000年，致力于加强校友之间的联系，提供丰富的社交和职业发展机会。</p>
+      
+      <!-- 轮播图 -->
+      <div id="homepageCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="幻灯片 1"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="1" aria-label="幻灯片 2"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="2" aria-label="幻灯片 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./zju_zjg_3.jpg" class="d-block w-100 img-fluid" alt="活动1">
+          </div>
+          <div class="carousel-item">
+            <img src="./zju_zjg_2.jpg" class="d-block w-100 img-fluid" alt="活动2">
+          </div>
+          <div class="carousel-item">
+            <img src="./zju_zjg_4.jpg" class="d-block w-100 img-fluid" alt="活动3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">上一张</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">下一张</span>
+        </button>
+      </div>
+      
+      <!-- 近期活动 -->
+      <h3>近期活动</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a class="event-title" data-bs-toggle="collapse" href="#event1" role="button" aria-expanded="false" aria-controls="event1">
+            2025年2月15日 校友会第一届会员大会暨新春团拜
+          </a>
+          <div class="collapse" id="event1">
+            <div class="mt-2">
+              <img src="./zjuaas_20250215_event.png" alt="活动详情图片" width="40%" class="img-fluid">
             </div>
-        </div>
-    </nav>
-    
-    <section id="index" class="section bg-light">
-        <div class="container text-center">
-            <h2>欢迎来到新加坡浙江大学校友会</h2>
-            <p>新加坡浙江大学校友会成立于2000年，致力于加强校友之间的联系，提供丰富的社交和职业发展机会。</p>
-            <h3>近期活动</h3>
-            <ul class="list-group">
-                <li class="list-group-item">2024年1月 校友新年聚会</li>
-                <li class="list-group-item">2023年12月 行业交流分享会</li>
-                <li class="list-group-item">2023年11月 运动日活动</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section id="history" class="section">
-        <div class="container text-center">
-            <h2>校友会历史</h2>
-            <p>校友会由一群热爱浙江大学的校友成立，20多年来不断发展壮大，举办了多种多样的活动，增进校友之间的联系。</p>
-        </div>
-    </section>
-    
-    <section id="org-chart" class="section bg-light">
-        <div class="container text-center">
-            <h2>组织架构</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle" alt="校友1">
-                    <h4>李阳</h4>
-                    <p>校友会会长</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle" alt="校友2">
-                    <h4>牛小倩</h4>
-                    <p>副会长</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle" alt="校友3">
-                    <h4>何咪</h4>
-                    <p>秘书长</p>
-                </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <a class="event-title" data-bs-toggle="collapse" href="#event2" role="button" aria-expanded="false" aria-controls="event2">
+            2025年1月1日 元旦毅行
+          </a>
+          <div class="collapse" id="event2">
+            <div class="mt-2">
+              <p><a target="_blank" href="https://mp.weixin.qq.com/s/RT_ruz9OXOWusT9ccxHGkg">详细报道</a></p>
+              <img src="./zjuaas_20250101_event.jpeg" alt="活动详情图片" class="img-fluid">
             </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <a class="event-title" data-bs-toggle="collapse" href="#event3" role="button" aria-expanded="false" aria-controls="event3">
+            更多活动敬请期待
+          </a>
+          <div class="collapse" id="event3">
+            <div class="mt-2">
+              <p>读书会、AI 行业大咖分享会等活动敬请关注！</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- 校友会简介 -->
+  <section id="history" class="section">
+    <div class="container">
+      <h2 class="text-center">浙江大学新加坡校友会简介</h2>
+      <p>
+        浙江大学新加坡校友会（Zhejiang University Alumni Association Singapore, 简称ZUAAS）于2000年在新加坡内政部注册并正式成立，是由在新加坡工作的和学习的浙江大学校友自愿组成的非营利性联合组织。校友会以“联络校友、凝聚力量、促进交流、共创未来”为宗旨，致力于为在新加坡的浙大校友搭建一个信息交流、资源共享和相互支持的平台。
+      </p>
+      <p>
+        自成立以来，校友会通过丰富多样的活动和项目不断加强校友之间的联系，成为促进校友职业发展、推动中新合作交流的重要纽带。校友会覆盖数千名在新加坡的浙大校友，注册校友人数已达数百人，校友们在学术、科技、工程和商界等领域展现了卓越的专业实力，成为新加坡多元化社会中的重要力量。
+      </p>
+      <p>
+        校友会每年举办大型年度聚会，并组织包括学术讲座、公益项目、兴趣小组和联谊活动在内的多种活动。品牌项目“薪火相传”公益系列活动，与新加坡中华总商会青年企业家网络（YEN）合作多年，受到社会各界的广泛关注。此外，校友会还与其他中国高校校友会及华人团体共同开展文化交流和职业发展活动，进一步拓展校友间的互动与合作。
+      </p>
+      <p>
+        校友会的组织架构包括主席团、秘书处、活动部、外联部、宣传部、会员部、财务部及创业部，各职能部门由理事会负责管理和运行。同时，资深校友组成的顾问团为校友会的战略发展提供支持。校友会也欢迎更多热心校友加入，共同为组织的持续发展贡献力量。
+      </p>
+      <p>
+        展望未来，浙江大学新加坡校友会将继续秉持开放、合作、共享的理念，通过更加多元的活动和项目，为校友们提供更多交流与发展的机会，并为中新关系的进一步深化贡献力量。
+      </p>
+    </div>
+  </section>
+  
+  <!-- 组织架构 -->
+  <section id="org-chart" class="section bg-light">
+    <div class="container text-center">
+      <h2>组织架构</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <img src="./blank_profile_pic.webp" class="rounded-circle img-fluid org-chart-img" alt="李阳">
+          <h4>李阳</h4>
+          <p>校友会会长（拟）</p>
         </div>
-    </section>
-    
-    <section id="events" class="section">
-        <div class="container text-center">
-            <h2>会员活动</h2>
-            <p>我们定期举办各类活动，包括社交聚会、职业发展论坛、文化交流等。</p>
-            <img src="https://via.placeholder.com/600x300" class="img-fluid" alt="活动照片">
+        <div class="col-md-4 mb-4">
+          <img src="./blank_profile_pic.webp" class="rounded-circle img-fluid org-chart-img" alt="牛小倩">
+          <h4>牛小倩</h4>
+          <p>副会长（拟）</p>
         </div>
-    </section>
-    
-    <section id="application" class="section bg-light">
-        <div class="container text-center">
-            <h2>会员申请</h2>
-            <p>加入我们，享受丰富的校友资源和活动！点击 <a href="https://forms.google.com">这里</a> 申请。</p>
+        <div class="col-md-4 mb-4">
+          <img src="./blank_profile_pic.webp" class="rounded-circle img-fluid org-chart-img" alt="何咪">
+          <h4>何咪</h4>
+          <p>秘书长（拟）</p>
         </div>
-    </section>
-    
-    <section id="sponsorship" class="section">
-        <div class="container text-center">
-            <h2>赞助信息</h2>
-            <p>我们欢迎企业和个人赞助校友活动，过往赞助商包括知名企业，如阿里巴巴、新加坡华为等。</p>
-        </div>
-    </section>
-    
-    <section id="contact" class="section bg-light">
-        <div class="container text-center">
-            <h2>联系我们</h2>
-            <p>邮箱: contact@zju.sg | 电话: +65 1234 5678 | 地址: 新加坡某地</p>
-        </div>
-    </section>
-    
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 新加坡浙江大学校友会. 版权所有.</p>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 会员章程 -->
+  <section id="member-rules" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center">会员章程</h2>
+      <h4>一．会员资格及权利</h4>
+      <ol>
+        <li>
+          浙江大学新加坡校友会会员资格向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需要满足以下至少一项条件：
+          <ul>
+            <li>拥有浙江大学全日制或非全日制学位</li>
+            <li>在浙江大学正式工作过的全职教职人员</li>
+          </ul>
+        </li>
+        <li>
+          经浙江大学新加坡校友会认证通过的会员将享有投票权及在校友会担任职务的权利，并在各类校友会活动中享有优先权。
+        </li>
+        <li>
+          对于未及时缴纳当年会员费的会员，其会员资格及权利将会被暂停（详见第三条）。
+        </li>
+        <li>
+          只有年满21岁的会员才有权在校友会中投票并担任职务。
+        </li>
+      </ol>
+      <h4>二．会员申请</h4>
+      <ol>
+        <li>希望加入浙江大学新加坡校友会的人士应按照规定的登记表格提交个人资料。</li>
+        <li>会员资格将由浙江大学新加坡校友会理事会审核通过后，通过正式的电子邮件予以通知发放。</li>
+      </ol>
+      <h4>三．会员费缴纳</h4>
+      <ol>
+        <li>
+          校友会会员有义务缴纳会员费。待会员大会正式审议：已工作校友费用为50新/年，学生校友费用为20新/年，会员资格每年更新。
+        </li>
+        <li>
+          如果会员在年度会员费缴纳期内未及时缴纳会费，其会员资格将被暂停。
+        </li>
+      </ol>
+    </div>
+  </section>
+  
+  <!-- 会员申请 -->
+  <section id="application" class="section bg-light">
+    <div class="container text-center">
+      <h2>会员申请</h2>
+      <!-- 补充入会条件信息 -->
+      <div class="mt-3 text-start">
+        <h5>浙江大学新加坡校友会入会条件</h5>
+        <p><strong>会员资格：</strong>浙江大学新加坡校友会会员资格向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需要满足以下至少一项条件：</p>
+        <ul>
+          <li>拥有浙江大学全日制或非全日制学位</li>
+          <li>在浙江大学正式工作过的全职教职人员</li>
+        </ul>
+        <p><strong>会员费用</strong>（待会员大会正式审议）：已工作校友费用为50新/年，学生校友费用为20新/年，会员资格每年更新。</p>
+        <p>加入我们，享受丰富的校友资源和活动！点击 <a href="https://forms.gle/RkeaiUiCHuP69Ue67" target="_blank">这里</a> 申请。</p>
+    </div>
+
+    </div>
+  </section>
+  
+  <!-- 赞助信息 -->
+  <section id="sponsorship" class="section">
+    <div class="container text-center">
+      <h2>赞助信息</h2>
+      <p>我们欢迎企业和个人赞助校友活动。详细信息即将更新，敬请期待。</p>
+    </div>
+  </section>
+  
+  <!-- 联系我们 -->
+  <section id="contact" class="section bg-light">
+    <div class="container text-center">
+      <h2>联系我们</h2>
+      <p>邮箱: contact@zju.sg | 电话: TBD | 地址: TBD</p>
+    </div>
+  </section>
+  
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 新加坡浙江大学校友会. 版权所有.</p>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
