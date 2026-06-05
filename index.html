@@ -9,59 +9,185 @@
     rel="stylesheet"
   />
   <style>
+    /* 全局高级感重置 */
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: #333333;
+      background-color: #fcfcfd;
     }
+    
+    /* 现代磨砂玻璃导航栏 */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1000; /* 确保导航栏在其他元素之上 */
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      padding: 12px 0;
     }
+    .navbar-nav .nav-link {
+      color: #4a5568 !important;
+      font-weight: 500;
+      padding: 6px 16px !important;
+      transition: all 0.25s ease;
+      border-radius: 6px;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #003399 !important; /* 经典求是蓝 */
+      background: rgba(0, 51, 153, 0.05);
+    }
+    
+    /* 板块优雅留白 */
     .section {
-      padding: 60px 0;
-      margin-top: 80px; /* 给固定导航栏腾出空间 */
-      scroll-margin-top: 80px; /* 滚动到该部分时预留顶部80px空间 */
+      padding: 90px 0;
+      margin-top: 40px;
+      scroll-margin-top: 90px;
     }
-    /* 为大标题添加 margin-bottom */
+    
+    /* 标题美设 */
     h2 {
-      margin-bottom: 20px;
+      font-weight: 700;
+      color: #003399;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 12px;
     }
-    /* 限制导航栏logo的最大宽度 */
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background: #c9372e; /* 浙大红点缀 */
+      border-radius: 2px;
+    }
+    
+    /* 限制导航栏logo宽度 */
     .navbar-brand img {
-      max-width: 300px;
+      max-width: 260px;
       height: auto;
     }
-    /* 固定轮播图片的大小，并居中裁剪 */
+    
+    /* 轮播图现代微卡片化 */
+    .carousel {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
     .carousel-inner {
-      height: 500px; /* 设定一个固定高度 */
+      height: 480px;
     }
     .carousel-inner img {
-      height: 60%;
-      width: 60%;
-      object-fit: cover; /* 保持比例，超出部分裁剪 */
-      object-position: center; /* 居中裁剪 */
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
     }
-    /* 设置活动列表中活动项目标题的样式 */
+    
+    /* 活动现代悬浮卡片流 */
+    .list-group {
+      border: none;
+      gap: 16px;
+    }
+    .list-group-item {
+      border: 1px solid rgba(0, 0, 0, 0.04) !important;
+      border-radius: 12px !important;
+      background: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      padding: 20px 24px !important;
+    }
+    .list-group-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 51, 153, 0.06);
+      border-color: rgba(0, 51, 153, 0.1) !important;
+    }
+    
+    /* 活动项目标题 */
     .event-title {
       display: block;
-      color: #0d6efd;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #1a202c;
       text-decoration: none;
       cursor: pointer;
+      transition: color 0.2s ease;
     }
     .event-title:hover {
-      text-decoration: underline;
+      color: #003399;
+      text-decoration: none;
     }
-    /* 活动内容中超链接的样式 */
+    
+    /* 优雅引用块 */
+    blockquote {
+      font-style: italic;
+      background: #f8fafc !important;
+      border-left: 4px solid #003399 !important;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    /* 活动内容链接 */
     .event-link {
-      color:rgb(8, 7, 7);
-      text-decoration: underline;
+      color: #c9372e;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dashed #c9372e;
+      transition: all 0.2s;
+    }
+    .event-link:hover {
+      color: #003399;
+      border-bottom-style: solid;
+    }
+    
+    /* 现代质感表格 */
+    .table {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #edf2f7;
+    }
+    
+    /* 行动召唤卡片优化 */
+    .cta-card {
+      background: linear-gradient(135deg, #003399 0%, #002266 100%);
+      color: #ffffff !important;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0, 51, 153, 0.15);
+    }
+    .cta-card h2, .cta-card h5, .cta-card p {
+      color: #ffffff !important;
+    }
+    .cta-card h2::after {
+      background: #ffffff;
+    }
+    .cta-btn {
+      background: #ffffff;
+      color: #003399 !important;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .cta-btn:hover {
+      transform: scale(1.03);
+      background: #f8fafc;
     }
   </style>
 </head>
 
 <body>
+  <!-- 导航栏 -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -78,125 +204,46 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#index">首页</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#recent-events">近期活动</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#recent-events">近期活动</a></li>
           <li class="nav-item"><a class="nav-link" href="#history">校友会简介</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#org-chart">组织架构</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#member-rules">会员章程</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#application">会员申请</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sponsorship">赞助</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#org-chart">组织架构</a></li>
+          <li class="nav-item"><a class="nav-link" href="#member-rules">会员章程</a></li>
+          <li class="nav-item"><a class="nav-link" href="#application">会员申请</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sponsorship">赞助</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section id="index" class="section bg-light">
+  <!-- 首页 -->
+  <section id="index" class="section">
     <div class="container text-center">
-      <h2>欢迎来到新加坡浙江大学校友会</h2>
-      <p>
-        新加坡浙江大学校友会成立于2000年，致力于加强校友之间的联系，提供丰富的社交和职业发展机会。
+      <h2 class="mb-4">欢迎来到新加坡浙江大学校友会</h2>
+      <p class="text-muted max-w-2xl mx-auto mb-4" style="font-size: 1.1rem; line-height: 1.8;">
+        新加坡浙江大学校友会成立于2000年，致力于加强校友之间的联系，提供丰富的社交和职业发展机会[cite: 2]。
       </p>
 
-      <div
-        id="homepageCarousel"
-        class="carousel slide my-4"
-        data-bs-ride="carousel"
-      >
+      <!-- 轮播图 -->
+      <div id="homepageCarousel" class="carousel slide my-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#homepageCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="幻灯片 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#homepageCarousel"
-            data-bs-slide-to="1"
-            aria-label="幻灯片 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#homepageCarousel"
-            data-bs-slide-to="2"
-            aria-label="幻灯片 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#homepageCarousel"
-            data-bs-slide-to="3"
-            aria-label="幻灯片 4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#homepageCarousel"
-            data-bs-slide-to="4"
-            aria-label="幻灯片 5"
-          ></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="幻灯片 1"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="1" aria-label="幻灯片 2"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="2" aria-label="幻灯片 3"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="3" aria-label="幻灯片 4"></button>
+          <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="4" aria-label="幻灯片 5"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="./zju_zjg_3.jpg"
-              class="d-block w-100 img-fluid"
-              alt="紫金港"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./zju_zjg_2.jpg"
-              class="d-block w-100 img-fluid"
-              alt="紫金港"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./zju_zjg_4.jpg"
-              class="d-block w-100 img-fluid"
-              alt="紫金港"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./zju_yq_1.jpg"
-              class="d-block w-100 img-fluid"
-              alt="玉泉"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./zju_xx_1.jpg"
-              class="d-block w-100 img-fluid"
-              alt="西溪"
-            />
-          </div>
+          <div class="carousel-item active"><img src="./zju_zjg_3.jpg" class="d-block w-100 img-fluid" alt="紫金港" /></div>
+          <div class="carousel-item"><img src="./zju_zjg_2.jpg" class="d-block w-100 img-fluid" alt="紫金港" /></div>
+          <div class="carousel-item"><img src="./zju_zjg_4.jpg" class="d-block w-100 img-fluid" alt="紫金港" /></div>
+          <div class="carousel-item"><img src="./zju_yq_1.jpg" class="d-block w-100 img-fluid" alt="玉泉" /></div>
+          <div class="carousel-item"><img src="./zju_xx_1.jpg" class="d-block w-100 img-fluid" alt="西溪" /></div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#homepageCarousel"
-          data-bs-slide="prev"
-        >
+        <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">上一张</span>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#homepageCarousel"
-          data-bs-slide="next"
-        >
+        <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">下一张</span>
         </button>
@@ -204,419 +251,343 @@
     </div>
   </section>
 
-  <section id="recent-events" class="section bg-light">
+  <!-- 近期活动 -->
+  <section id="recent-events" class="section bg-light" style="background-color: #f8fafc !important;">
     <div class="container">
       <h2 class="text-center">近期活动</h2>
       <ul class="list-group">
-
-        <!-- 活动 6 开始：求是科技炉边夜话系列讲座 -->
+        
+        <!-- 活动 6：求是科技炉边夜话系列讲座 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event6" role="button" aria-expanded="false" aria-controls="event6">
-            【2026年5月28日】求是科技炉边夜话成功举办：共探 AI 与教育行业的前沿图景
+            🔥 【2026年5月28日】求是科技炉边夜话成功举办：共探 AI 与教育行业的前沿图景[cite: 2]
           </a>
           <div class="collapse" id="event6">
-            <div class="mt-3">
-              <p><strong>新加坡讯 2026年5月28日晚</strong>，由浙江大学新加坡校友会主办的“炉边夜话”沙龙活动在新加坡顺利举行。本次活动特别邀请到人工智能领域的资深专家、浙大优秀校友沈鑫博士作为主讲嘉宾，为大家带来了一场关于人工智能技术与教育行业融合发展的深度主题分享。</p>
-              <p>来自各行各业的二十余位在星浙大校友及特邀嘉宾齐聚一堂。活动现场气氛热烈，校友们在温馨的自我介绍与互动中拉开帷幕，并结合各自的专业背景进行了广泛的交流与引申。</p>
+            <div class="mt-3" style="line-height: 1.8;">
+              <p><strong>新加坡讯 2026年5月28日晚</strong>，由浙江大学新加坡校友会主办的“炉边夜话”沙龙活动在新加坡顺利举行[cite: 2]。本次活动特别邀请到人工智能领域的资深专家、浙大优秀校友沈鑫博士作为主讲嘉宾，为大家带来了一场关于人工智能技术与教育行业融合发展的深度主题分享[cite: 2]。</p>
+              <p>来自各行各业的二十余位在星浙大校友及特邀嘉宾齐聚一堂[cite: 2]。活动现场气氛热烈，校友们在温馨的自我介绍与互动中拉开帷幕，并结合各自的专业背景进行了广泛的交流与引申[cite: 2]。</p>
 
               <!-- 活动宣传海报图 -->
-              <div class="my-3 text-center">
-                <img src="./event_20250215/20260528-01.jpg" alt="大模型推理增强与教育智能化海报" class="img-fluid" style="max-width: 60%; display: block; margin: 0 auto;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/20260528-01.jpg" alt="大模型推理增强与教育智能化海报" class="img-fluid rounded shadow-sm" style="max-width: 50%;" />[cite: 2]
               </div>
 
-              <h5>聚焦行业前沿，共话技术演进</h5>
-              <p>分享期间，沈鑫博士结合自身丰富的行业实践经验，深入浅出地剖析了当前大模型在垂直教育领域应用中的核心逻辑、行业痛点及未来发展趋势。他指出，优秀的智能化产品应致力于更科学、可信的逻辑引导与用户体验，服务于长远的人才培养与技术迭代。</p>
+              <h5 class="text-primary mt-4">聚焦行业前沿，共话技术演进</h5>
+              <p>分享期间，沈鑫博士结合自身丰富的行业实践经验，深入浅出地剖析了当前大模型在垂直教育领域应用中的核心逻辑、行业痛点及未来发展趋势[cite: 2]。他指出，优秀的智能化产品应致力于更科学、可信的逻辑引导与用户体验，服务于长远的人才培养与技术迭代[cite: 2]。</p>
               
-              <h5>智慧交锋，畅叙校友情谊</h5>
-              <p>在问答与互动环节中，现场校友和嘉宾反响热烈，围绕技术落地、行业转型、商业闭环以及具身智能等前沿热点议题展开了广泛而深入的思辨与探讨。</p>
+              <h5 class="text-primary mt-4">智慧交锋，畅叙校友情谊</h5>
+              <p>在问答与互动环节中，现场校友和嘉宾反响热烈，围绕技术落地、行业转型、商业闭环以及具身智能等前沿热点议题展开了广泛而深入的思辨与探讨[cite: 2]。</p>
 
               <!-- 活动现场合影/交流图 -->
-              <div class="my-3 text-center">
-                <img src="./event_20250215/20260528-02.jpg" alt="炉边夜话活动现场" class="img-fluid" style="max-width: 80%; display: block; margin: 0 auto;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/20260528-02.jpg" alt="炉边夜话活动现场" class="img-fluid rounded shadow-sm" style="max-width: 75%;" />[cite: 2]
               </div>
 
-              <p class="mt-4">夜色渐深，校友们在会后的自由交流热情依然不减。大家纷纷表示，本次炉边夜话活动不仅拓宽了行业视野，更搭建了难得的跨界交流平台。</p>
-              <p>浙江大学新加坡校友会今后将继续推出更多高质量的行业沙龙，搭建智慧碰撞的桥梁，助力在星校友共同成长。感谢广大校友对本次活动的大力支持！</p>
-              
-              <p class="text-end text-muted mt-4"><small>（浙江大学新加坡校友会 秘书处 供稿）</small></p>
+              <p class="mt-4">夜色渐深，校友们在会后的自由交流热情依然不减[cite: 2]。大家纷纷表示，本次炉边夜话活动不仅拓宽了行业视野，更搭建了难得的跨界交流平台[cite: 2]。</p>
+              <p class="fw-medium text-secondary">浙江大学新加坡校友会今后将继续推出更多高质量的行业沙龙，搭建智慧碰撞的桥梁，助力在星校友共同成长[cite: 2]。感谢广大校友对本次活动的大力支持[cite: 2]！</p>
+              <p class="text-end text-muted mt-4"><small>（浙江大学新加坡校友会 秘书处 供稿）[cite: 2]</small></p>
             </div>
           </div>
         </li>
-        <!-- 活动 6 结束 -->
-        
+
+        <!-- 活动 5：129周年校庆滨海毅行活动 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event5" role="button" aria-expanded="false" aria-controls="event5">
-            【2026年5月20日】庆母校百廿九华诞 | 浙大新加坡校友会滨海毅行展风华
+            🏃‍♂️ 【2026年5月20日】庆母校百廿九华诞 | 浙大新加坡校友会滨海毅行展风华[cite: 2]
           </a>
           <div class="collapse" id="event5">
-            <div class="mt-3">
-              <div class="mt-2 d-flex flex-wrap mb-3">
-                <img src="./event_20250215/2026052001.jpg" alt="滨海毅行合影1" class="img-fluid me-2 mb-2" style="width: 48%; object-fit: cover;" />
-                <img src="./event_20250215/2026052002.jpg" alt="滨海毅行合影2" class="img-fluid me-2 mb-2" style="width: 48%; object-fit: cover;" />
+            <div class="mt-3" style="line-height: 1.8;">
+              <!-- 毅行活动组合图 -->
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052001.jpg" alt="滨海毅行合影1" class="img-fluid rounded shadow-sm m-1" style="max-width: 45%; object-fit: cover;" />[cite: 2]
+                <img src="./event_20250215/2026052002.jpg" alt="滨海毅行合影2" class="img-fluid rounded shadow-sm m-1" style="max-width: 45%; object-fit: cover;" />[cite: 2]
               </div>
 
-              <p>“大不自多，海纳江河”，母校 129 周年华诞将至，浙大新加坡校友会特别策划校庆主题毅行活动，以滨海之行共贺母校华章。</p>
+              <p>“大不自多，海纳江河”，母校 129 周年华诞将至，浙大新加坡校友会特别策划校庆主题毅行活动，以滨海之行共贺母校华章[cite: 2]。</p>
 
-              <div class="my-3 text-center">
-                <img src="./event_20250215/2026052003.jpg" alt="拉布拉多保护区" class="img-fluid" style="max-width: 80%;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052003.jpg" alt="拉布拉多保护区" class="img-fluid rounded shadow-sm" style="max-width: 70%;" />[cite: 2]
               </div>
 
-              <p>本次毅行路线精心串联起新加坡南部海岸的经典景致，一路风光如画，底蕴丰厚。队伍从 Labrador Park 地铁站出发，即刻踏入拉布拉多自然保护区的范围。沿着滨海木栈道前行，一侧是波光粼粼的海面，一侧是枝叶繁茂的绿植，平整的栈道蜿蜒向海，既保留着自然野趣，又能让人从容欣赏海岸风光，脚下的每一步都伴着涛声与鸟鸣，格外惬意。</p>
+              <p>本次毅行路线精心串联起新加坡南部海岸的经典景致，一路风光如画，底蕴丰厚[cite: 2]。队伍从 Labrador Park 地铁站出发，即刻踏入拉布拉多自然保护区的范围[cite: 2]。沿着滨海木栈道前行，一侧是波光粼粼的海面，一侧是枝叶繁茂的绿植，平整的栈道蜿蜒向海，既保留着自然野趣，又能让人从容欣赏海岸风光，脚下的每一步都伴着涛声与鸟鸣，格外惬意[cite: 2]。</p>
 
-              <div class="my-3 text-center">
-                <img src="./event_20250215/2026052004.jpg" alt="红树林生态区域" class="img-fluid" style="max-width: 80%;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052004.jpg" alt="红树林生态区域" class="img-fluid rounded shadow-sm" style="max-width: 70%;" />[cite: 2]
               </div>
 
-              <p>行至中段，便进入红树林区域。这片生长于海岸潮间带的生态林地，是新加坡重要的自然生态屏障。盘根错节的红树根系牢牢扎根于滩涂，繁茂的枝叶交织成荫，不仅为众多鸟类、蟹类等生物提供了栖息家园，也展现着顽强的生命力与和谐的生态之美。穿行其间，清新的空气扑面而来，大家在感受自然生机的同时，也更能体会到 “启真厚德” 所蕴含的对自然、对万物的敬畏与探索之心。</p>
+              <p>行至中段，便进入红树林区域[cite: 2]。这片生长于海岸潮间带的生态林地，是新加坡重要的自然生态屏障[cite: 2]。盘根错节的红树根系牢牢扎根于滩涂，繁茂的枝叶交织成荫，不仅为众多鸟类、蟹类等生物提供了栖息家园，也展现着顽强的生命力与和谐的生态之美[cite: 2]。穿行其间，清新的空气扑面而来，大家在感受自然生机的同时，也更能体会到 “启真厚德” 所蕴含的对自然、对万物的敬畏与探索之心[cite: 2]。</p>
 
-              <div class="my-3 text-center">
-                <img src="./event_20250215/2026052005.jpg" alt="龙牙门地标" class="img-fluid" style="max-width: 80%;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052005.jpg" alt="龙牙门地标" class="img-fluid rounded shadow-sm" style="max-width: 70%;" />[cite: 2]
               </div>
 
-              <p>继续向前，抵达龙牙门（Dragon‘s Teeth Gate），这里是新加坡本岛的最南端，也是一处承载着悠久历史的地标。古时，这里是海上航行的重要标识，两块高耸的岩石形似龙牙，见证着新加坡作为海上交通要道的千年变迁，也象征着开拓与连接的精神。旁边矗立的红色灯塔，红白相间的塔身醒目而温暖，百年来静静伫立，为往来船只指引方向，如同母校的教诲，始终是校友们前行路上的精神灯塔。</p>
+              <p>继续向前，抵达龙牙门（Dragon‘s Teeth Gate），这里是新加坡本岛的最南端，也是一处承载着悠久历史的地标[cite: 2]。古时，这里是海上航行的重要标识，两块高耸的岩石形似龙牙，见证着新加坡作为海上交通要道的千年变迁，也象征着开拓与连接的精神[cite: 2]。旁边矗立的红色灯塔，红白相间的塔身醒目而温暖，百年来静静伫立，为往来船只指引方向，如同母校的教诲，始终是校友们前前行路上的精神灯塔[cite: 2]。</p>
 
-              <div class="my-3 text-center">
-                <img src="./event_20250215/2026052006.jpg" alt="吉宝湾美景" class="img-fluid" style="max-width: 80%;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052006.jpg" alt="吉宝湾美景" class="img-fluid rounded shadow-sm" style="max-width: 70%;" />[cite: 2]
               </div>
 
-              <p>随后，路线延伸至吉宝湾（Keppel Bay）。这里集自然美景与现代活力于一体，平静的港湾内停泊着各式游艇，沿岸的建筑与绿地相映成趣，碧海、蓝天、白帆与城市景观相融，勾勒出新加坡滨海生活的美好图景。大家漫步湾畔，眼前的开阔景致，也恰如母校 “海纳江河” 的胸怀，包容万象，气象万千。</p>
+              <p>随后，路线延伸至吉宝湾（Keppel Bay）[cite: 2]。这里集自然美景与现代活力于一体，平静的港湾内停泊着各式游艇，沿岸的建筑与绿地相映成趣，碧海、蓝天、白帆与城市景观相融，勾勒出新加坡滨海生活的美好图景[cite: 2]。大家漫步湾畔，眼前的开阔景致，也恰如母校 “海纳江河” 的胸怀，包容万象，气象万千[cite: 2]。</p>
 
-              <div class="my-3 text-center">
-                <img src="./event_20250215/2026052007.jpg" alt="VivoCity终点聚会" class="img-fluid" style="max-width: 80%;" />
+              <div class="my-4 text-center">
+                <img src="./event_20250215/2026052007.jpg" alt="VivoCity终点聚会" class="img-fluid rounded shadow-sm" style="max-width: 70%;" />[cite: 2]
               </div>
 
-              <p>队伍最终抵达 VivoCity，这座新加坡知名的滨海地标，既是行程的终点，也象征着一段新的开始。全程数公里的行走中，校友们结伴而行，从最初的轻松畅谈，到途中彼此鼓励、相互帮扶，昔日在求是园的同窗情谊，在异国的海岸线上变得更加深厚。大家分享着求学时光的难忘故事，交流着在新加坡的工作与生活感悟，也聊起母校近年来的发展成就，言语间满是自豪与牵挂。</p>
-              
-              <p class="fw-bold text-center mt-4 text-primary">校友们于狮城之南远眺碧波万顷，重温求是精神，于海风轻拂间畅叙校友情谊，以脚步丈量热土，用毅行致敬青春！</p>
+              <p>队伍最终抵达 VivoCity，这座新加坡知名的滨海地标，既是行程的终点，也象征着一段新的开始[cite: 2]。全程数公里的行走中，校友们结伴而行，从最初的轻松畅谈，到途中彼此鼓励、相互帮扶，昔日在求是园的同窗情谊，在异国的海岸线上变得更加深厚[cite: 2]。大家分享着求学时光的难忘故事，交流着在新加坡的工作与生活感悟，也聊起母校近年来的发展成就，言语间满是自豪与牵挂[cite: 2]。</p>
+              <p class="text-center mt-4 text-primary font-weight-bold" style="font-size: 1.05rem;">校友们于狮城之南远眺碧波万顷，重温求是精神，于海风轻拂间畅叙校友情谊，以脚步丈量热土，用毅行致敬青春[cite: 2]！</p>
             </div>
           </div>
         </li>
 
+        <!-- 活动 4 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event4" role="button" aria-expanded="false" aria-controls="event4">
-            【2026年4月21日】访谈征集 | “求是人的南洋故事” —— 寻找南洋奋斗的浙大老校友
+            📜 【2026年4月21日】访谈征集 | “求是人的南洋故事” —— 寻找南洋奋斗的浙大老校友[cite: 2]
           </a>
           <div class="collapse" id="event4">
-            <div class="mt-3">
-              <p>亲爱的浙大校友们：</p>
-              <p>在狮城的晨光里，在椰风蕉雨的南洋大地上，一代又一代浙大人留下了属于他们的奋斗足迹。他们或许早在上世纪中叶就远渡重洋，来到新加坡及周边国家，在异乡扎根、拼搏、成长。他们在南洋求学、创业、工作、生活，将“求是精神”融入到异国的土壤中。</p>
-              <p>他们的故事，是浙大历史中珍贵的一页，也是我们共同的精神财富。</p>
-              <p>为了记录和传承这份宝贵的记忆，浙江大学新加坡校友会正式启动主题访谈活动 —— “求是人的南洋故事”。</p>
-              <p>本次活动将通过访谈、口述记录等方式，整理和呈现浙大校友在南洋地区的真实经历。我们特别希望聚焦早年来到南洋发展的老校友，为这一代“求是人”留下属于他们的时代回响。</p>
+            <div class="mt-3" style="line-height: 1.8;">
+              <p>亲爱的浙大校友们：[cite: 2]</p>
+              <p>在狮城的晨光里，在椰风蕉雨的南洋大地上，一代又一代浙大人留下了属于他们的奋斗足迹[cite: 2]。他们或许早在上世纪中叶就远渡重洋，来到新加坡及周边国家，在异乡扎根、拼搏、成长[cite: 2]。他们在南洋求学、创业、工作、生活，将“求是精神”融入到异国的土壤中[cite: 2]。</p>
+              <p>他们的故事，是浙大历史中珍贵的一页，也是我们共同的精神财富[cite: 2]。</p>
+              <p>为了记录和传承这份宝贵的记忆，浙江大学新加坡校友会正式启动主题访谈活动 —— “求是人的南洋故事”[cite: 2]。</p>
+              <p>本次活动将通过访谈、口述记录等方式，整理和呈现浙大校友在南洋地区的真实经历[cite: 2]。我们特别希望聚焦早年来到南洋发展的老校友，为这一代“求是人”留下属于他们的时代回响[cite: 2]。</p>
               
-              <h5>访谈者征集 (GUEST SPEAKER)</h5>
-              <p>现面向全体校友征集线索，如果您身边有以下特征的校友，欢迎向我们推荐：</p>
+              <h5 class="text-primary mt-3">访谈者征集 (GUEST SPEAKER)[cite: 2]</h5>
+              <p>现面向全体校友征集线索，如果您身边有以下特征的校友，欢迎向我们推荐：[cite: 2]</p>
               <ul>
-                <li>在新加坡及周边南洋地区工作、生活多年</li>
-                <li>较早来到南洋发展</li>
-                <li>愿意分享求学、创业、工作或生活经历</li>
+                <li>在新加坡及周边南洋地区工作、生活多年[cite: 2]</li>
+                <li>较早来到南洋发展[cite: 2]</li>
+                <li>愿意分享求学、创业、工作或生活经历[cite: 2]</li>
               </ul>
 
-              <h5>征集内容 (CONTENT)</h5>
+              <h5 class="text-primary mt-3">征集内容 (CONTENT)[cite: 2]</h5>
               <ul>
-                <li>老校友姓名</li>
-                <li>入学年份 / 毕业院系（如方便）</li>
-                <li>当前所在城市 / 国家</li>
-                <li>联系方式（电话 / 微信 / 邮箱）</li>
-                <li>推荐人姓名及联系方式（便于后续联系）</li>
+                <li>老校友姓名[cite: 2]</li>
+                <li>入学年份 / 毕业院系（如方便）[cite: 2]</li>
+                <li>当前所在城市 / 国家[cite: 2]</li>
+                <li>联系方式（电话 / 微信 / 邮箱）[cite: 2]</li>
+                <li>推荐人姓名及联系方式（便于后续联系）[cite: 2]</li>
               </ul>
-              <p class="text-muted"><small>* 所有信息仅用于本次校友故事记录活动。我们将严格保管，并在联系本人确认后再开展采访工作。</small></p>
+              <p class="text-muted"><small>* 所有信息仅用于本次校友故事记录活动[cite: 2]。我们将严格保管，并在联系本人确认后再开展采访工作[cite: 2]。</small></p>
 
-              <h5>联系方式 (CONTACT)</h5>
-              <p>如您愿意推荐或提供线索，欢迎通过以下方式联系我们：<br><strong>微信：</strong>qiqiy1777（柒柒）</p>
+              <h5 class="text-primary mt-3">联系方式 (CONTACT)[cite: 2]</h5>
+              <p>如您愿意推荐或提供线索，欢迎通过以下方式联系我们：[cite: 2]<br><strong>微信：</strong>qiqiy1777（柒柒）[cite: 2]</p>
 
-              <h5>写在最后 (ENDING)</h5>
-              <p>每一位老校友，都是一部行行走走的校史。他们的青春、选择、坚持与成长，值得被倾听、被记录、被传承。</p>
-              <p>让我们一起寻找和记录南洋的求是足迹，让老一辈浙大人的故事被更多人听见，也让“求是精神”在时代中继续发光。</p>
+              <h5 class="text-primary mt-3">写在最后 (ENDING)[cite: 2]</h5>
+              <p>每一位老校友，都是一部行走的校史[cite: 2]。他们的青春、选择、坚持与成长，值得被倾听、被记录、被传承[cite: 2]。</p>
+              <p>让我们一起寻找和记录南洋的求是足迹，让老一辈浙大人的故事被更多人听见，也让“求是精神”在时代中继续发光[cite: 2]。</p>
               
-              <p class="text-end mt-4"><strong>浙江大学新加坡校友会理事会</strong><br>2026年4月21日</p>
+              <p class="text-end mt-4"><strong>浙江大学新加坡校友会理事会</strong>[cite: 2]<br>2026年4月21日[cite: 2]</p>
             </div>
           </div>
         </li>
 
+        <!-- 活动 1 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event1" role="button" aria-expanded="false" aria-controls="event1">
-            【2025年2月15日】龙腾四海贺新春，求是同心聚狮城 —— 浙江大学新加坡校友会新春团拜晚宴圆满落幕
+            🎉 【2025年2月15日】龙腾四海贺新春，求是同心聚狮城 —— 浙江大学新加坡校友会新春团拜晚宴圆满落幕[cite: 2]
           </a>
           <div class="collapse" id="event1">
-            <div class="mt-3">
-              <p>龙腾四海贺新春，求是同心聚狮城 —— 浙江大学新加坡校友会新春团拜晚宴圆满落幕</p>
-              <p>随着乙巳蛇年新春的钟声渐渐远去，我们满怀喜悦地回顾了浙江大学新加坡校友会举办的新春团拜晚宴。这场温馨而团圆的家宴不仅让校友们暂时放下了繁忙的工作，更让我们在欢声笑语中重温了求是园的青葱岁月，共同分享了在狮城的浙里情长。</p>
-              <h5>活动亮点回顾：</h5>
+            <div class="mt-3" style="line-height: 1.8;">
+              <p>龙腾四海贺新春，求是同心聚狮城 —— 浙江大学新加坡校友会新春团拜晚宴圆满落幕[cite: 2]</p>
+              <p>随着乙巳蛇年新春的钟声渐渐远去，我们满怀喜悦地回顾了浙江大学新加坡校友会举办的新春团拜晚宴[cite: 2]。这场温馨而团圆的家宴不仅让校友们暂时放下了繁忙的工作，更让我们在欢声笑语中重温了求是园的青葱岁月，共同分享了在狮城的浙里情长[cite: 2]。</p>
+              <h5 class="text-primary mt-3">活动亮点回顾：</h5>
               <ul>
-                <li>主题： 龙腾四海贺新春，求是同心聚狮城</li>
-                <li>时间： 2025年2月15日（周六）17:00-21:00</li>
-                <li>地点： Raffles Town Club，1 Plymouth Ave, Singapore 297753</li>
-                <li>参与人数： 超过100位校友及家人参加了会员大会和晚宴</li>
+                <li>主题： 龙腾四海贺新春，求是同心聚狮城[cite: 2]</li>
+                <li>时间： 2025年2月15日（周六）17:00-21:00[cite: 2]</li>
+                <li>地点： Raffles Town Club，1 Plymouth Ave, Singapore 297753[cite: 2]</li>
+                <li>参与人数： 超过100位校友及家人参加了会员大会和晚宴[cite: 2]</li>
               </ul>
-              <h5>活动流程：</h5>
-              <p>活动于17:00正式开始，首先举行的是浙大新加坡校友会会员大会。在大会上，校友们回顾了过去一年的成就，展望了新的一年的计划，并进行了深入的交流 and 讨论。18:30，随着团拜晚宴的开始，现场气氛达到了高潮。校友们身着新春传统服饰或正装，红金配色的着装为晚宴增添了喜庆的氛围。</p>
-              <h5>活动反响：</h5>
-              <p>晚宴结束后，校友们纷纷表示这是一次难忘的聚会。通过这次活动，不仅加强了校友之间的联系，也让大家在异国他乡感受到了家的温暖。许多校友在社交媒体上分享了他们的照片 and 感受，表达了对这次活动的赞赏和对组织者表达谢意。</p>
-              <p>浙江大学新加坡校友会新春团拜晚宴的成功举办，离不开每一位校友的支持 and 参与。我们期待在未来的日子里，能够继续举办更多这样的活动，让校友们在忙碌的生活中找到归属感，共同庆祝每一个重要的时刻。</p>
+              <h5 class="text-primary mt-3">活动流程：</h5>
+              <p>活动于17:00正式开始，首先举行的是浙大新加坡校友会会员大会[cite: 2]。在大会上，校友们回顾了过去一年的成就，展望了新的一年的计划，并进行了深入的交流 and 讨论[cite: 2]。18:30，随着团拜晚宴的开始，现场气氛达到了高潮[cite: 2]。校友们身着新春传统服饰或正装，红金配色的着装为晚宴增添了喜庆的氛围[cite: 2]。</p>
+              <h5 class="text-primary mt-3">活动反响：</h5>
+              <p>晚宴结束后，校友们纷纷表示这是一次难忘的聚会[cite: 2]。通过这次活动，不仅加强了校友之间的联系，也让大家在异国他乡感受到了家的温暖[cite: 2]。许多校友在社交媒体上分享了他们的照片 and 感受，表达了对这次活动的赞赏和对组织者表达谢意[cite: 2]。</p>
+              <p>浙江大学新加坡校友会新春团拜晚宴的成功举办，离不开每一位校友的支持 and 参与[cite: 2]。我们期待在未来的日子里，能够继续举办更多这样的活动，让校友们在忙碌的生活中找到归属感，共同庆祝每一个重要的时刻[cite: 2]。</p>
             </div>
-            <p>
-              <a class="event-link" href="https://m.piufoto.com/album/1072624704/?menu=live" target="_blank">活动图册</a>
+            <p class="mt-3">
+              <a class="event-link" href="https://m.piufoto.com/album/1072624704/?menu=live" target="_blank">活动图册</a>[cite: 2]
             </p>
             <div class="mt-2 d-flex flex-wrap">
-              <img src="./event_20250215/20250215_1.jpg" alt="活动详情图片1" class="img-fluid me-2 mb-2" style="width: 30%;" />
-              <img src="./event_20250215/20250215_2.jpg" alt="活动详情图片2" class="img-fluid me-2 mb-2" style="width: 30%;" />
-              <img src="./event_20250215/20250215_3.jpg" alt="活动详情图片3" class="img-fluid me-2 mb-2" style="width: 30%;" />
-              <img src="./event_20250215/20250215_4.jpg" alt="活动详情图片4" class="img-fluid me-2 mb-2" style="width: 30%;" />
-              <img src="./event_20250215/20250215_5.jpg" alt="活动详情图片5" class="img-fluid me-2 mb-2" style="width: 30%;" />
-              <img src="./event_20250215/20250215_6.jpg" alt="活动详情图片6" class="img-fluid me-2 mb-2" style="width: 30%;" />
+              <img src="./event_20250215/20250215_1.jpg" alt="活动详情图片1" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
+              <img src="./event_20250215/20250215_2.jpg" alt="活动详情图片2" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
+              <img src="./event_20250215/20250215_3.jpg" alt="活动详情图片3" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
+              <img src="./event_20250215/20250215_4.jpg" alt="活动详情图片4" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
+              <img src="./event_20250215/20250215_5.jpg" alt="活动详情图片5" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
+              <img src="./event_20250215/20250215_6.jpg" alt="活动详情图片6" class="img-fluid me-2 mb-2 rounded" style="width: 30%;" />[cite: 2]
             </div>
           </div>
         </li>
+
+        <!-- 活动 2 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event2" role="button" aria-expanded="false" aria-controls="event2">
-            【2025年1月1日】元旦毅行
+            🧭 【2025年1月1日】元旦毅行[cite: 2]
           </a>
           <div class="collapse" id="event2">
-            <p>
-              <a class="event-link" target="_blank" href="https://mp.weixin.qq.com/s/RT_ruz9OXOWusT9ccxHGkg">详细报道</a>
+            <p class="mt-3">
+              <a class="event-link" target="_blank" href="https://mp.weixin.qq.com/s/RT_ruz9OXOWusT9ccxHGkg">详细报道</a>[cite: 2]
             </p>
-            <div class="mt-2 d-flex flex-wrap">
-              <img src="./zjuaas_20250101_event.jpeg" alt="活动详情图片1" class="img-fluid me-2 mb-2" style="width: 40%;" />
+            <div class="mt-2">
+              <img src="./zjuaas_20250101_event.jpeg" alt="活动详情图片1" class="img-fluid rounded" style="width: 40%;" />[cite: 2]
             </div>
           </div>
         </li>
+
+        <!-- 活动 3 -->
         <li class="list-group-item">
           <a class="event-title" data-bs-toggle="collapse" href="#event3" role="button" aria-expanded="false" aria-controls="event3">
-            【持续更新】更多活动敬请期待
+            ✨ 【持续更新】更多活动敬请期待[cite: 2]
           </a>
           <div class="collapse" id="event3">
-            <div class="mt-2">
-              <p>读书会、AI 行业大咖分享会等活动敬请关注！</p>
+            <div class="mt-2 text-muted">
+              <p>读书会、AI 行业大咖分享会等活动敬请关注！[cite: 2]</p>
             </div>
           </div>
         </li>
       </ul>
     </div>
   </section>
-  
 
+  <!-- 校友会简介 -->
   <section id="history" class="section">
-    <div class="container">
+    <div class="container" style="max-width: 900px;">
       <h2 class="text-center">浙江大学新加坡校友会简介</h2>
-      <p>
-        浙江大学新加坡校友会（Zhejiang University Alumni Association
-        Singapore, 简称ZUAAS）于2000年在新加坡内政部注册并正式成立，是由在新加坡工作的和学习的浙江大学校友自愿组成的非营利性联合组织。校友会以“联络校友、凝聚力量、促进交流、共创未来”为宗旨，致力于为在新加坡的浙大校友搭建一个信息交流、资源共享和相互支持的平台。
-      </p>
-      <p>
-        自成立以来，校友会通过丰富多样的活动和项目不断加强校友之间的联系，成为促进校友职业发展、推动中新合作交流的重要纽带。校友会覆盖数千名在新加坡的浙大校友，注册校友人数已达数百人，校友们在学术、科技、工程和商界等领域展现了卓越的专业实力，成为新加坡多元化社会中的重要力量。
-      </p>
-      <p>
-        校友会每年举办大型年度聚会，并组织包括学术讲座、公益项目、兴趣小组和联谊活动在内的多种活动。品牌项目“薪火相传”公益系列活动，与新加坡中华总商会青年企业家网络（YEN）合作多年，受到社会各界的广泛关注。此外，校友会还与其他中国高校校友会及华人团体共同开展文化交流和职业发展活动，进一步拓展校友间的互动与合作。
-      </p>
-      <p>
-        校友会的组织架构包括主席团、财务组、秘书组、外联部、会员组、信息组、新闻组、联络组、以及项目组，各职能部门由理事会负责管理 and 运行。同时，资深校友组成的顾问团为校友会的战略发展提供支持。校友会也欢迎更多热心校友加入，共同为组织的持续发展贡献力量。
-      </p>
-      <p>
-        展望未来，浙江大学新加坡校友会将继续秉持开放、合作、共享的理念，通过更加多元的活动和项目，为校友们提供更多交流与发展的机会，并为中新关系的进一步深化贡献力量。
-      </p>
+      <div style="line-height: 1.9; font-size: 1.05rem; text-align: justify;">
+        <p>浙江大学新加坡校友会（Zhejiang University Alumni Association Singapore, 简称ZUAAS）于2000年在新加坡内政部注册并正式成立，是由在新加坡工作的和学习的浙江大学校友自愿组成的非营利性联合组织[cite: 2]。校友会以“联络校友、凝聚力量、促进交流、共创未来”为宗旨，致力于为在新加坡的浙大校友搭建一个信息交流、资源共享和相互支持的平台[cite: 2]。</p>
+        <p>自成立以来，校友会通过丰富多样的活动和项目不断加强校友之间的联系，成为促进校友职业发展、推动中新合作交流的重要纽带[cite: 2]。校友会覆盖数千名在新加坡的浙大校友，注册校友人数已达数百人，校友们在学术、科技、工程和商界等领域展现了卓越的专业实力，成为新加坡多元化社会中的重要力量[cite: 2]。</p>
+        <p>校友会每年举办大型年度聚会，并组织包括学术讲座、公益项目、兴趣小组和联谊活动在内的多种活动[cite: 2]。品牌项目“薪火相传”公益系列活动，与新加坡中华总商会青年企业家网络（YEN）合作多年，受到社会各界的广泛关注[cite: 2]。</p>
+        <p>校友会的组织架构包括主席团、财务组、秘书组、外联部、会员组、信息组、新闻组、联络组、以及项目组，各职能部门由理事会负责管理 and 运行[cite: 2]。同时，资深校友组成的顾问团为校友会的战略发展提供支持[cite: 2]。校友会也欢迎更多热心校友加入，共同为组织的持续发展贡献力量[cite: 2]。</p>
+        <p>展望未来，浙江大学新加坡校友会将继续秉持开放、合作、共享的理念，通过更加多元的活动和项目，为校友们提供更多交流与发展的机会，并为中新关系的进一步深化贡献力量[cite: 2]。</p>
+      </div>
     </div>
   </section>
 
-<section id="org-chart" class="section bg-light">
-  <div class="container">
-    <h2 class="text-center">组织架构</h2>
-    <p>（更新于2026年1月4日）</p>
-    <table class="table table-bordered table-striped">
-      <thead class="table-light text-center">
-        <tr>
-          <th style="width: 20%;">组别</th>
-          <th>人员信息</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>会长</td>
-          <td>
-            李阳
-          </td>
-        </tr>
-        <tr>
-          <td>副会长</td>
-          <td>
-            曹亮
-          </td>
-        </tr>
-        <tr>
-          <td>财务组</td>
-          <td>
-            <strong>组长：</strong>虞肖鹏<br>
-            <strong>副组长：</strong>鞠安娜
-          </td>
-        </tr>
-        <tr>
-          <td>秘书组</td>
-          <td>
-            <strong>组长：</strong>何咪<br>
-            <strong>副组长：</strong>曹亮（兼）<br>
-            <strong>组员：</strong>王婷
-          </td>
-        </tr>
-        <tr>
-          <td>会员组</td>
-          <td>
-            <strong>组长：</strong>孟繁旭<br>
-            <strong>副组长：</strong>王一凡、薛雪<br>
-            <strong>组员：</strong>杨奇奇
-          </td>
-        </tr>
-        <tr>
-          <td>信息组</td>
-          <td>
-            <strong>组长：</strong>张昊<br>
-            <strong>副组长：</strong>梁帅龙
-          </td>
-        </tr>
-        <tr>
-          <td>新闻组</td>
-          <td>
-            <strong>组长：</strong>胡元平<br>
-            <strong>组员：</strong>孙雨禾
-          </td>
-        </tr>
-        <tr>
-          <td>联络组</td>
-          <td>
-            <strong>组长：</strong>唐资仪<br>
-            <strong>组员：</strong>史皓淼
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" class="text-center table-secondary"><strong>项目类</strong></td>
-        </tr>
-        <tr>
-          <td>科技组</td>
-          <td>
-            <strong>组长：</strong>张昊（兼）<br>
-            <strong>副组长：</strong>梁帅龙（兼）
-          </td>
-        </tr>
-        <tr>
-          <td>读书会</td>
-          <td>
-            <strong>组长：</strong>梁帅龙（兼）<br>
-            <strong>副组长：</strong>方洪勇
-          </td>
-        </tr>
-        <tr>
-          <td>户外与运动组</td>
-          <td>
-            <strong>组员：</strong>王意存、冯博文
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-
-
-  <section id="member-rules" class="section bg-light">
+  <!-- 组织架构 -->
+  <section id="org-chart" class="section bg-light" style="background-color: #f8fafc !important;">
     <div class="container">
+      <h2 class="text-center">组织架构</h2>
+      <p class="text-center text-muted mb-4">（更新于2026年1月4日）[cite: 2]</p>
+      <div class="table-responsive" style="max-width: 800px; margin: 0 auto;">
+        <table class="table table-hover bg-white m-0">
+          <thead class="table-dark" style="background: #003399 !important;">
+            <tr class="text-center">
+              <th style="width: 25%; background: #003399; color: white;">组别</th>
+              <th style="background: #003399; color: white;">人员信息</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="fw-bold text-center">会长</td><td>李阳[cite: 2]</td></tr>
+            <tr><td class="fw-bold text-center">副会长</td><td>曹亮[cite: 2]</td></tr>
+            <tr>
+              <td class="fw-bold text-center">财务组</td>
+              <td><strong>组长：</strong>虞肖鹏[cite: 2]<br><strong>副组长：</strong>鞠安娜[cite: 2]</td>
+            </tr>
+            <tr>
+              <td class="fw-bold text-center">秘书组</td>
+              <td><strong>组长：</strong>何咪[cite: 2]<br><strong>副组长：</strong>曹亮（兼）[cite: 2]<br><strong>组员：</strong>王婷[cite: 2]</td>
+            </tr>
+            <tr>
+              <td class="fw-bold text-center">会员组</td>
+              <td><strong>组长：</strong>孟繁旭[cite: 2]<br><strong>副组长：</strong>王一凡、薛雪[cite: 2]<br><strong>组员：</strong>杨奇奇[cite: 2]</td>
+            </tr>
+            <tr>
+              <td class="fw-bold text-center">信息组</td>
+              <td><strong>组长：</strong>张昊[cite: 2]<br><strong>副组长：</strong>梁帅龙[cite: 2]</td>
+            </tr>
+            <tr><td class="fw-bold text-center">新闻组</td><td><strong>组长：</strong>胡元平[cite: 2]<br><strong>组员：</strong>孙雨禾[cite: 2]</td></tr>
+            <tr><td class="fw-bold text-center">联络组</td><td><strong>组长：</strong>唐资仪[cite: 2]<br><strong>组员：</strong>史皓淼[cite: 2]</td></tr>
+            <tr class="table-secondary text-center fw-bold"><td colspan="2">项目类[cite: 2]</td></tr>
+            <tr>
+              <td class="fw-bold text-center">科技组</td>
+              <td><strong>组长：</strong>张昊（兼）[cite: 2]<br><strong>副组长：</strong>梁帅龙（兼）[cite: 2]</td>
+            </tr>
+            <tr>
+              <td class="fw-bold text-center">读书会</td>
+              <td><strong>组长：</strong>梁帅龙（兼）[cite: 2]<br><strong>副组长：</strong>方洪勇[cite: 2]</td>
+            </tr>
+            <tr><td class="fw-bold text-center">户外与运动组</td><td><strong>组员：</strong>王意存、冯博文[cite: 2]</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会员章程 -->
+  <section id="member-rules" class="section">
+    <div class="container" style="max-width: 900px; line-height: 1.8;">
       <h2 class="text-center">会员章程</h2>
-      <h4>一．会员资格及权利</h4>
-      <ol>
-        <li>
-          浙江大学新加坡校友会会员资格向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需要满足以下至少一项条件：
-          <ul>
-            <li>拥有浙江大学全日制或非全日制学位</li>
-            <li>在浙江大学正式工作过的全职教职人员</li>
-          </ul>
-        </li>
-        <li>
-          经浙江大学新加坡校友会认证通过的会员将享有投票权及在校友会担任职务的权利，并在各类校友会活动中享有优先权。
-        </li>
-        <li>
-          对于未及时缴纳当年会员费的会员，其会员资格及权利将会被暂停（详见第三条）。
-        </li>
-        <li>
-          只有年满21岁的会员才有权在校友会中投票并担任职务。
-        </li>
-      </ol>
-      <h4>二．会员申请</h4>
-      <ol>
-        <li>希望加入浙江大学新加坡校友会的人士应按照规定的登记表格提交个人资料。</li>
-        <li>
-          会员资格将由浙江大学新加坡校友会理事会审核通过后，通过正式的电子邮件予以通知发放。
-        </li>
-      </ol>
-      <h4>三．会员费缴纳</h4>
-      <ol>
-        <li>
-          校友会会员有义务缴纳会员费。待会员大会正式审议：已工作校友费用为50新/年，学生校友费用为20新/年，会员资格每年更新。
-        </li>
-        <li>
-          如果会员在年度会员费缴纳期内未及时缴纳会费，其会员资格将被暂停。
-        </li>
-      </ol>
+      <div class="p-4 bg-white rounded border shadow-sm">
+        <h4 class="text-primary h5 mb-3">一．会员资格及权利</h4>
+        <ol class="mb-4 text-muted" style="padding-left: 20px;">
+          <li class="mb-2">浙江大学新加坡校友会会员资格向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需要满足以下至少一项条件：[cite: 2]
+            <ul class="mt-2" style="padding-left: 20px; list-style-type: disc;">
+              <li>拥有浙江大学全日制或非全日制学位[cite: 2]</li>
+              <li>在浙江大学正式工作过的全职教职人员[cite: 2]</li>
+            </ul>
+          </li>
+          <li class="mb-2">经浙江大学新加坡校友会认证通过的会员将享有投票权及在校友会担任职务的权利，并在各类校友会活动中享有优先权[cite: 2]。</li>
+          <li class="mb-2">对于未及时缴纳当年会员费的会员，其会员资格及权利将会被暂停（详见第三条）[cite: 2]。</li>
+          <li>只有年满21岁的会员才有权在校友会中投票并担任职务[cite: 2]。</li>
+        </ol>
+        
+        <h4 class="text-primary h5 mb-3">二．会员申请</h4>
+        <ol class="mb-4 text-muted" style="padding-left: 20px;">
+          <li class="mb-2">希望加入浙江大学新加坡校友会的人士应按照规定的登记表格提交个人资料[cite: 2]。</li>
+          <li>会员资格将由浙江大学新加坡校友会理事会审核通过后，通过正式的电子邮件予以通知发放[cite: 2]。</li>
+        </ol>
+
+        <h4 class="text-primary h5 mb-3">三．会员费缴纳</h4>
+        <ol class="m-0 text-muted" style="padding-left: 20px;">
+          <li class="mb-2">校友会会员有义务缴纳会员费。待会员大会正式审议：已工作校友费用为50新/年，学生校友费用为20新/年，会员资格每年更新[cite: 2]。</li>
+          <li>如果会员在年度会员费缴纳期内未及时缴纳会费，其会员资格将被暂停[cite: 2]。</li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <section id="application" class="section bg-light">
-    <div class="container text-center">
-      <h2>会员申请</h2>
-      <div class="mt-3 text-start">
-        <h5>浙江大学新加坡校友会入会条件</h5>
-        <p>
-          <strong>会员资格：</strong>浙江大学新加坡校友会会员资格向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需要满足以下至少一项条件：
-        </p>
-        <ul>
-          <li>拥有浙江大学全日制或非全日制学位</li>
-          <li>在浙江大学正式工作过的全职教职人员</li>
-        </ul>
-        <p>
-          <strong>会员费用</strong>（待会员大会正式审议）：已工作校友费用为50新/年，学生校友费用为20新/年，会员资格每年更新。
-        </p>
-        <p>
-          加入我们，享受丰富的校友资源和活动！点击
-          <a href="https://forms.gle/RkeaiUiCHuP69Ue67" target="_blank">这里</a>
-          申请。有任何疑问，欢迎通过 <a href="mailto:contact@zju.sg">contact@zju.sg</a> 联系我们。
+  <!-- 会员申请 CTA 卡片化重构 -->
+  <section id="application" class="section">
+    <div class="container" style="max-width: 900px;">
+      <div class="cta-card text-center">
+        <h2 class="mb-3">期待你的加入</h2>
+        <div class="mb-4 mx-auto text-start" style="max-width: 700px; opacity: 0.95; font-size: 0.95rem; line-height: 1.7;">
+          <h5 class="text-center mb-3">浙江大学新加坡校友会入会条件</h5>
+          <p class="mb-2"><strong>会员资格：</strong>向新加坡合法居民开放（包括新加坡公民、新加坡永久居民以及持有一年以上长期有效签证的人），且需满足拥有浙大正式学位或教职经历[cite: 2]。</p>
+          <p class="mb-3"><strong>会员费用（待会员大会正式审议）：</strong>已工作校友费用为 50新/年，学生校友费用为 20新/年，会员资格每年更新[cite: 2]。</p>
+        </div>
+        <a href="https://forms.gle/RkeaiUiCHuP69Ue67" target="_blank" class="cta-btn">立即线上申请入会</a>[cite: 2]
+        <p class="mt-3 mb-0" style="font-size: 0.9rem; opacity: 0.8;">
+          有任何疑问，欢迎通过官方电邮 <a href="mailto:contact@zju.sg" style="color: #fff; text-decoration: underline;">contact@zju.sg</a> 联系我们[cite: 2]。
         </p>
       </div>
     </div>
   </section>
 
-  <section id="sponsorship" class="section">
-    <div class="container text-center">
-      <h2>赞助信息</h2>
-      <div class="mt-3 text-start">
-        <p>
-          我们欢迎企业和个人赞助校友活动，同时也欢迎校友捐赠支持校友会各项活动。为了方便校友们的支持，我们特别说明以下几点：
-        </p>
-        <ul>
-          <li>
-            <strong>金额次数不限：</strong>
-            无论金额大小，无论捐赠次数，我们都欢迎您的支持，仅限校友参与。
-          </li>
-          <li>
-            <strong>灵活捐赠方式：</strong>
-            您可以捐赠用于校友会的各大活动，也可以单项赞助某项具体活动，满足您的个性化需求。
-          </li>
-          <li>
-            <strong>捐赠证书：</strong>
-            所有符合条件的捐赠校友都将获得校友会颁发的捐赠证书，以感谢您的支持与贡献。
-          </li>
+  <!-- 赞助信息 -->
+  <section id="sponsorship" class="section bg-light" style="background-color: #f8fafc !important;">
+    <div class="container" style="max-width: 900px;">
+      <h2 class="text-center">赞助与支持</h2>
+      <div class="p-4 bg-white rounded border shadow-sm" style="line-height: 1.8;">
+        <p class="text-muted">我们欢迎企业和个人赞助校友活动，同时也欢迎校友捐赠支持校友会各项活动[cite: 2]。为了方便校友们的支持，我们特别说明以下几点：[cite: 2]</p>
+        <ul class="text-muted" style="padding-left: 20px;">
+          <li class="mb-2"><strong>金额次数不限：</strong>无论金额大小，无论捐赠次数，我们都欢迎您的支持，仅限校友参与[cite: 2]。</li>
+          <li class="mb-2"><strong>灵活捐赠方式：</strong>您可以捐赠用于校友会的各大活动，也可以单项赞助某项具体活动，满足您的个性化需求[cite: 2]。</li>
+          <li><strong>捐赠证书：</strong>所有符合条件的捐赠校友都将获得校友会颁发的捐赠证书，以感谢您的支持与贡献[cite: 2]。</li>
         </ul>
-        <p>
-          有意向的校友可通过电邮
-          <a href="mailto:finance@zju.sg">finance@zju.sg</a>
-          与我们取得联系。
+        <p class="text-center mt-4 mb-0 font-weight-bold">
+          有意向的校友可通过电邮 <a class="event-link" href="mailto:finance@zju.sg">finance@zju.sg</a> 与我们取得联系[cite: 2]。
         </p>
       </div>
     </div>
   </section>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2026 新加坡浙江大学校友会. 版权所有. Made with ❤️ with ChatGPT.</p>
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white text-center py-4" style="background-color: #1a202c !important;">
+    <div class="container">
+      <p class="m-0" style="opacity: 0.8; font-size: 0.95rem;">&copy; 2026 新加坡浙江大学校友会. 版权所有. Made with ❤️ with AI Collaborator.</p>
+    </div>
   </footer>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
